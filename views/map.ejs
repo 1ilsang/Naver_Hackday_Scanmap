@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ./scriptMetaLink %>
+</head>
+
+<body>
+    <div class="preloader">
+        <img src="img/loader.gif" alt="Preloader image">
+    </div>
+
+    <header id="">
+        <br>
+        <div id="n">
+            <ul class="nav navbar-nav navbar-right main-nav">
+                <li><a href="/">Main</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#start">Start</a></li>
+                <li><a href="/#team">Team</a></li>
+                <li><a href="#">&nbsp;&nbsp;&nbsp;</a></li>
+            </ul>
+            <!-- /.container-fluid -->
+        </div>
+        <center>
+            <div id="map" style="width:80%;height:600px;top:40px;left:30px">
+            </div>
+        </center>
+        <br><br><br><br>
+        <center>
+            <div style="width:100%; min-height: 100px; padding-left: 8%;">
+                <div style="float:left">
+                    <button class="btn btn-blue ripple trial-button" type="button" onclick="clearMap()">모든 표시 지우기</button> &nbsp;
+                </div>
+                <div style="float:left; width:25%">
+                    &nbsp;
+                </div>
+                <div style="float:left; width:30%">
+                    <h4 class="white">검색하실 값을 선택하세요 !</h4>
+                </div>
+                <div style="float:left; width:2%">
+                    &nbsp;
+                </div>
+                <div style="float:left">
+                    <input type="radio" name="radiosample" value="cafe" />카페 &nbsp;&nbsp;&nbsp;&nbsp; <br><br>
+                    <input type="radio" name="radiosample" value="bar" />술집 &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float:left">
+                    <input type="radio" name="radiosample" value="park" />공원 &nbsp;&nbsp;&nbsp;&nbsp; <br><br>
+                    <input type="radio" name="radiosample" value="restaurant" />음식점&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div style="float:left; width:1%">
+                    &nbsp;
+                </div>
+                <div style="float:left">
+                    <button class="btn btn-blue ripple trial-button" onclick="markersXYList('radiosample')">장소 검색!!</button>
+                </div>
+                
+                <div id="list_view" style="display: none;"></div>
+            </div>
+        </center>
+    </header>
+
+    <section>
+
+    </section>
+
+    <section id="pricing" class="section">
+        <div class="container">
+            <div class="row title text-center">
+                <form name="formMap" onsubmit="return false;">
+                    <h1 class="light white">찾으실 주소를 추가해 주세요</h1><br>
+                    <input style="width:50%; height:50px;" type="text" name="firAddr">
+                    <a href="#n">
+                        <input class="btn btn-blue ripple trial-button" type="button" onclick="openMap(formMap)" value="입력">
+                    </a>
+                </form><br>
+                <br>
+                <a href="#n">
+                </a>
+                <hr>
+                <h2 class="margin-top white">간편하게 사용하세요!</h2><br>
+                <h4 class="light white">주소를 직접 입력하시거나 지도를 클릭해 핀을 설정하시고
+                    <br><br>중심으로부터 몇M 검색하실지 버튼 클릭 후 생성된 원을 클릭하면 끝!</h4>
+                <br><br><br><br><br><br>
+            </div>
+            <br>
+        </div>
+    </section>
+
+
+
+
+    <footer>
+        <% include ./footer %>
+    </footer>
+</body>
+<script>
+    init_map();
+</script>
+
+</html>

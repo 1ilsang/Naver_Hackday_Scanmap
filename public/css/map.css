@@ -1,0 +1,8 @@
+#place_list {
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+#place_list tr td.col-xs-8 {
+    text-align: left;
+}

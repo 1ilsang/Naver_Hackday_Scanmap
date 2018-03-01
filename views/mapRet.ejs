@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ./scriptMetaLink %>
+</head>
+
+<body>
+    <div class="preloader">
+        <img src="img/loader.gif" alt="Preloader image">
+    </div>
+
+    <header id="">
+        <br>
+        <div class="">
+            <ul class="nav navbar-nav navbar-right main-nav">
+                <li><a href="/">Main</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#start">Start</a></li>
+                <li><a href="/#team">Team</a></li>
+                <li><a href="#">&nbsp;&nbsp;&nbsp;</a></li>
+            </ul>
+            <!-- /.container-fluid -->
+        </div>
+        <center>
+            <div id="map" style="width:90%;height:600px;top:40px"></div>
+        </center>
+    </header>
+    <hr>
+    <center>
+        <h2 class="">총
+            <%= rows.length %> 개의 건물을 찾았습니다!</h2>
+    </center>
+    <hr>
+    <ol type="A">
+        <% for(var i = 0; i< rows.length; i++){ %>
+            <h1>
+                <%= rows[i].name %>
+            </h1>
+            <h2><a href="<%= rows[i].url %>">바로가기</a></h2>
+            <br>
+            <hr>
+            <%}%>
+    </ol>
+    <h2 align="right"><a href="/map">다시 검색하기</a></h2>
+
+    <footer>
+        <% include ./footer %>
+    </footer>
+
+    <script>
+        //지도에 핀 추가
+        var map = new naver.maps.Map('map', {
+            zoom: 11,
+            mapTypeControl: true
+        });
+
+        <% for (var i = 0; i < rows.length; i++) { %>
+        var rowsName = '<%= rows[i].name %>';
+        var rowsX = Number('<%= rows[i].x %>');
+        var rowsY = Number('<%= rows[i].y %>');
+        var myaddr = new naver.maps.Point(rowsX, rowsY);
+
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(myaddr),
+            map: map,
+            title: rowsName,
+            animation: naver.maps.Animation.BOUNCE
+        });
+        <% } %>
+    </script>
+</body>
+
+</html>
